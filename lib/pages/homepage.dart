@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/customApp.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_application_1/customDrawer.dart';
+import 'package:flutter_application_1/custom_app.dart';
+import 'package:flutter_application_1/custom_drawer.dart';
 import 'package:flutter_application_1/pages/cvarci.dart';
 import 'package:flutter_application_1/pages/kobasice.dart';
 import 'package:flutter_application_1/pages/krvavice.dart';
@@ -13,15 +12,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     double scalewidth = MediaQuery.of(context).size.width / 400;
-   double scaleheight = MediaQuery.of(context).size.height / 800;
+    double scalewidth = MediaQuery.of(context).size.width / 400;
+    double scaleheight = MediaQuery.of(context).size.height / 800;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/icons/pozadina3.jpg'),
             fit: BoxFit.cover,
@@ -29,33 +28,24 @@ class HomePage extends StatelessWidget {
           ),
         ),
         child: ListView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           children: <Widget>[
-            SizedBox(height: scaleheight* 40),
-            
+            SizedBox(height: scaleheight * 40),
 
             //Kobasice
             InkWell(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Kobasice()),
+                  MaterialPageRoute(builder: (context) => const Kobasice()),
                 );
               },
               child: Container(
-                child: Text(
-                  "Kobasice",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: scalewidth * 30,
-                    color: Colors.white,
-                  ),
-                ),
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 width: scalewidth * 1,
-                height: scaleheight *60,
+                height: scaleheight * 60,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage('assets/icons/kobasica.jpg'),
                     fit: BoxFit.cover,
                     opacity: 0.4,
@@ -67,6 +57,14 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
+                child: Text(
+                  "Kobasice",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: scalewidth * 30,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             //Kulenove seke
@@ -74,23 +72,15 @@ class HomePage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Kulenovaseka()),
+                  MaterialPageRoute(builder: (context) => const Kulenovaseka()),
                 );
               },
               child: Container(
-                child: Text(
-                  "Kulenove seke",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: scalewidth * 30,
-                    color: Colors.white,
-                  ),
-                ),
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 width: scalewidth * 1,
-                height:scaleheight * 60,
+                height: scaleheight * 60,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage('assets/icons/kulenovaseka.jpg'),
                     fit: BoxFit.cover,
                     opacity: 0.4,
@@ -102,6 +92,14 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
+                child: Text(
+                  "Kulenove seke",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: scalewidth * 30,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             //Kulen
@@ -109,23 +107,15 @@ class HomePage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Kulen()),
+                  MaterialPageRoute(builder: (context) => const Kulen()),
                 );
               },
               child: Container(
-                child: Text(
-                  "Kulen",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: scalewidth * 30,
-                    color: Colors.white,
-                  ),
-                ),
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 width: scalewidth * 1,
-                height: scaleheight *60,
+                height: scaleheight * 60,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage('assets/icons/kulen.jpeg'),
                     fit: BoxFit.cover,
                     opacity: 0.4,
@@ -137,6 +127,14 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
+                child: Text(
+                  "Kulen",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: scalewidth * 30,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             //Krvavice
@@ -144,23 +142,15 @@ class HomePage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Krvavice()),
+                  MaterialPageRoute(builder: (context) => const Krvavice()),
                 );
               },
               child: Container(
-                child: Text(
-                  "Krvavice",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: scalewidth * 30,
-                    color: Colors.white,
-                  ),
-                ),
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 width: scalewidth * 1,
-                height: scaleheight *60,
+                height: scaleheight * 60,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage('assets/icons/krvavica.jpg'),
                     fit: BoxFit.cover,
                     opacity: 0.4,
@@ -172,6 +162,14 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
+                child: Text(
+                  "Krvavice",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: scalewidth * 30,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             //Čvarci
@@ -179,23 +177,15 @@ class HomePage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Cvarci()),
+                  MaterialPageRoute(builder: (context) => const Cvarci()),
                 );
               },
               child: Container(
-                child: Text(
-                  "Čvarci",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: scalewidth * 30,
-                    color: Colors.white,
-                  ),
-                ),
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 width: scalewidth * 1,
-                height:scaleheight * 60,
+                height: scaleheight * 60,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage('assets/icons/cvarci.jpg'),
                     fit: BoxFit.cover,
                     opacity: 0.4,
@@ -207,12 +197,20 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
+                child: Text(
+                  "Čvarci",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: scalewidth * 30,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ],
         ),
       ),
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(),
       ),

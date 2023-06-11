@@ -10,11 +10,11 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     double widgetwidth = MediaQuery.of(context).size.width;
-    
+
     double scalewidth = widgetwidth / 400;
-    
+
     return PreferredSize(
-      preferredSize: Size.fromHeight(60.0),
+      preferredSize: const Size.fromHeight(60.0),
       child: AppBar(
         centerTitle: true,
         title: Stack(
@@ -32,7 +32,7 @@ class CustomAppBar extends StatelessWidget {
             Text(
               'smjesApp',
               style: TextStyle(
-                fontSize: 42* scalewidth,
+                fontSize: 42 * scalewidth,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87,
               ),
@@ -43,7 +43,7 @@ class CustomAppBar extends StatelessWidget {
         elevation: 0,
         leading: CupertinoButton(
           padding: EdgeInsets.zero,
-          child: Icon(CupertinoIcons.info, size: 35, color: Colors.black),
+          child: const Icon(CupertinoIcons.info, size: 35, color: Colors.black),
           onPressed: () {
             Scaffold.of(context).openDrawer();
           },
@@ -53,8 +53,6 @@ class CustomAppBar extends StatelessWidget {
             bottom: Radius.circular(20),
           ),
         ),
-        
-        
       ),
     );
   }

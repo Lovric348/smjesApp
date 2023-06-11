@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
@@ -5,7 +7,7 @@ import 'package:flutter/services.dart';
 class KrvRecept extends StatefulWidget {
   final int data;
 
-  const KrvRecept({required this.data});
+  const KrvRecept({super.key, required this.data});
 
   @override
   State<KrvRecept> createState() => _KrvReceptState();
@@ -34,33 +36,32 @@ class _KrvReceptState extends State<KrvRecept> {
   bool _novo2bool = false;
   bool _novo3bool = false;
 
-  TextEditingController _textController = TextEditingController();
-  TextEditingController _slatkaController = TextEditingController();
-  TextEditingController _ljutaController = TextEditingController();
-  TextEditingController _solController = TextEditingController();
-  TextEditingController _lukController = TextEditingController();
-  TextEditingController _krvController = TextEditingController();
-  TextEditingController _paparController = TextEditingController();
-  TextEditingController _novo1Controller = TextEditingController();
-  TextEditingController _novo2Controller = TextEditingController();
-  TextEditingController _novo3Controller = TextEditingController();
-  TextEditingController _novo1imeController = TextEditingController();
-  TextEditingController _novo2imeController = TextEditingController();
-  TextEditingController _novo3imeController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
+  final TextEditingController _slatkaController = TextEditingController();
+  final TextEditingController _ljutaController = TextEditingController();
+  final TextEditingController _solController = TextEditingController();
+  final TextEditingController _lukController = TextEditingController();
+  final TextEditingController _krvController = TextEditingController();
+  final TextEditingController _paparController = TextEditingController();
+  final TextEditingController _novo1Controller = TextEditingController();
+  final TextEditingController _novo2Controller = TextEditingController();
+  final TextEditingController _novo3Controller = TextEditingController();
+  final TextEditingController _novo1imeController = TextEditingController();
+  final TextEditingController _novo2imeController = TextEditingController();
+  final TextEditingController _novo3imeController = TextEditingController();
   int maxDigits = 9;
   @override
   void initState() {
     super.initState();
     if (widget.data == 22) {
       _naslov = 'Slavonski';
-      _slatka = 0.003; 
+      _slatka = 0.003;
       _ljuta = 0.001;
       _sol = 0.2;
       _przeniluk = 0.1;
       _papar = 0.03;
       _krv = 0.1;
       _index = 0;
-      
     } else if (widget.data == 33) {
       _naslov = 'Moj izbor';
       _index = 1;
@@ -73,6 +74,7 @@ class _KrvReceptState extends State<KrvRecept> {
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     double scalewidth = MediaQuery.of(context).size.width / 400;
     double scaleheight = MediaQuery.of(context).size.height / 800;
@@ -185,7 +187,7 @@ class _KrvReceptState extends State<KrvRecept> {
             backgroundColor: Colors.transparent,
             leading: CupertinoButton(
               padding: EdgeInsets.zero,
-              child: Icon(
+              child: const Icon(
                 CupertinoIcons.back,
                 size: 44,
                 color: Colors.black87,
@@ -195,7 +197,7 @@ class _KrvReceptState extends State<KrvRecept> {
               },
             ),
             flexibleSpace: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/icons/pozadina3.jpg'),
                   fit: BoxFit.cover,
@@ -211,7 +213,7 @@ class _KrvReceptState extends State<KrvRecept> {
             Container(
               height: double.infinity,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/icons/pozadina3.jpg'),
                   fit: BoxFit.cover,
@@ -219,7 +221,7 @@ class _KrvReceptState extends State<KrvRecept> {
                 ),
               ),
               child: ListView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 children: [
                   SizedBox(height: scaleheight * 10),
                   Container(
@@ -228,7 +230,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     //To update it based on user input or other factors, you should consider using a setState method to update the value and reflect it in the UI.
                     width: scalewidth * 5,
                     height: scaleheight * 110,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                         color: Colors.black87,
                         borderRadius: BorderRadius.circular(20),
@@ -258,8 +260,9 @@ class _KrvReceptState extends State<KrvRecept> {
                                   fontSize: scalewidth * 22,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                keyboardType: TextInputType.numberWithOptions(
-                                    decimal: true),
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                        decimal: true),
                                 onChanged: (value) {
                                   setState(() {
                                     _kilograma = double.parse(value);
@@ -285,7 +288,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                     borderRadius: BorderRadius.circular(8.0),
                                     borderSide: BorderSide.none,
                                   ),
-                                  contentPadding: EdgeInsets.symmetric(
+                                  contentPadding: const EdgeInsets.symmetric(
                                       vertical: 3.0, horizontal: 7.0),
                                 ),
                               ),
@@ -297,9 +300,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
 
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -309,7 +312,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage:
                               AssetImage('assets/icons/paprika.png'),
@@ -341,9 +344,9 @@ class _KrvReceptState extends State<KrvRecept> {
 
                   //Ljuta
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -353,7 +356,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/chili.png'),
                           backgroundColor: Colors.black87,
@@ -384,9 +387,9 @@ class _KrvReceptState extends State<KrvRecept> {
 
                   //Sol
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -396,7 +399,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/sol.png'),
                           backgroundColor: Colors.black87,
@@ -426,9 +429,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
                   //Luk
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -438,7 +441,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/luk.png'),
                           backgroundColor: Colors.black87,
@@ -468,9 +471,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
                   //Krv
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -480,7 +483,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/krv.png'),
                           backgroundColor: Colors.black87,
@@ -510,9 +513,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
                   //Papar
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -522,7 +525,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/papar.png'),
                           backgroundColor: Colors.black87,
@@ -556,7 +559,7 @@ class _KrvReceptState extends State<KrvRecept> {
             Container(
               height: double.infinity,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/icons/pozadina3.jpg'),
                   fit: BoxFit.cover,
@@ -564,7 +567,7 @@ class _KrvReceptState extends State<KrvRecept> {
                 ),
               ),
               child: ListView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 children: [
                   SizedBox(height: scaleheight * 10),
                   Container(
@@ -573,7 +576,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     //To update it based on user input or other factors, you should consider using a setState method to update the value and reflect it in the UI.
                     width: scalewidth * 5,
                     height: scaleheight * 110,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                         color: Colors.black87,
                         borderRadius: BorderRadius.circular(20),
@@ -603,8 +606,9 @@ class _KrvReceptState extends State<KrvRecept> {
                                   fontSize: scalewidth * 22,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                keyboardType: TextInputType.numberWithOptions(
-                                    decimal: true),
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                        decimal: true),
                                 onChanged: (value) {
                                   setState(() {
                                     _kilograma = double.parse(value);
@@ -630,7 +634,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                     borderRadius: BorderRadius.circular(8.0),
                                     borderSide: BorderSide.none,
                                   ),
-                                  contentPadding: EdgeInsets.symmetric(
+                                  contentPadding: const EdgeInsets.symmetric(
                                       vertical: 3.0, horizontal: 7.0),
                                 ),
                               ),
@@ -641,9 +645,9 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -653,7 +657,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage:
                               AssetImage('assets/icons/paprika.png'),
@@ -679,15 +683,16 @@ class _KrvReceptState extends State<KrvRecept> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () {},
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
                               ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               onChanged: (value) {
                                 setState(() {
                                   _slatka = double.parse(value);
@@ -695,7 +700,7 @@ class _KrvReceptState extends State<KrvRecept> {
                               },
                               controller: _slatkaController,
                               decoration: InputDecoration(
-                                suffix: Text(
+                                suffix: const Text(
                                   '%',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -708,7 +713,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 3.0, horizontal: 7.0),
                               ),
                             ),
@@ -730,9 +735,9 @@ class _KrvReceptState extends State<KrvRecept> {
 
                   //Ljuta
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -742,7 +747,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/chili.png'),
                           backgroundColor: Colors.black87,
@@ -767,15 +772,16 @@ class _KrvReceptState extends State<KrvRecept> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () {},
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
                               ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               onChanged: (value) {
                                 setState(() {
                                   _ljuta = double.parse(value);
@@ -784,7 +790,7 @@ class _KrvReceptState extends State<KrvRecept> {
                               },
                               controller: _ljutaController,
                               decoration: InputDecoration(
-                                suffix: Text(
+                                suffix: const Text(
                                   '%',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -797,7 +803,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 3.0, horizontal: 7.0),
                               ),
                             ),
@@ -819,9 +825,9 @@ class _KrvReceptState extends State<KrvRecept> {
 
                   //Sol
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -831,7 +837,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/sol.png'),
                           backgroundColor: Colors.black87,
@@ -856,15 +862,16 @@ class _KrvReceptState extends State<KrvRecept> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () {},
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
                               ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               onChanged: (value) {
                                 setState(() {
                                   _sol = double.parse(value);
@@ -873,7 +880,7 @@ class _KrvReceptState extends State<KrvRecept> {
                               },
                               controller: _solController,
                               decoration: InputDecoration(
-                                suffix: Text(
+                                suffix: const Text(
                                   '%',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -886,7 +893,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 3.0, horizontal: 7.0),
                               ),
                             ),
@@ -907,9 +914,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
                   //Prženi luk
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -919,7 +926,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/luk.png'),
                           backgroundColor: Colors.black87,
@@ -944,15 +951,16 @@ class _KrvReceptState extends State<KrvRecept> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () {},
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
                               ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               onChanged: (value) {
                                 setState(() {
                                   _przeniluk = double.parse(value);
@@ -961,7 +969,7 @@ class _KrvReceptState extends State<KrvRecept> {
                               },
                               controller: _lukController,
                               decoration: InputDecoration(
-                                suffix: Text(
+                                suffix: const Text(
                                   '%',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -974,7 +982,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 3.0, horizontal: 7.0),
                               ),
                             ),
@@ -995,9 +1003,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
                   //Papar
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -1007,7 +1015,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/papar.png'),
                           backgroundColor: Colors.black87,
@@ -1032,15 +1040,16 @@ class _KrvReceptState extends State<KrvRecept> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () {},
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
                               ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               onChanged: (value) {
                                 setState(() {
                                   _papar = double.parse(value);
@@ -1049,7 +1058,7 @@ class _KrvReceptState extends State<KrvRecept> {
                               },
                               controller: _paparController,
                               decoration: InputDecoration(
-                                suffix: Text(
+                                suffix: const Text(
                                   '%',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -1062,7 +1071,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 3.0, horizontal: 7.0),
                               ),
                             ),
@@ -1083,9 +1092,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
                   //Krv
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -1095,7 +1104,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage('assets/icons/krv.png'),
                           backgroundColor: Colors.black87,
@@ -1120,15 +1129,16 @@ class _KrvReceptState extends State<KrvRecept> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () {},
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
                               ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               onChanged: (value) {
                                 setState(() {
                                   _krv = double.parse(value);
@@ -1137,7 +1147,7 @@ class _KrvReceptState extends State<KrvRecept> {
                               },
                               controller: _krvController,
                               decoration: InputDecoration(
-                                suffix: Text(
+                                suffix: const Text(
                                   '%',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -1150,7 +1160,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 3.0, horizontal: 7.0),
                               ),
                             ),
@@ -1171,9 +1181,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
                   //Novo1
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -1183,7 +1193,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage:
                               AssetImage('assets/icons/povrce.png'),
@@ -1201,7 +1211,7 @@ class _KrvReceptState extends State<KrvRecept> {
                             inputFormatters: [
                               LengthLimitingTextInputFormatter(9),
                             ],
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 hintText: '*Sastojak*',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
@@ -1219,15 +1229,16 @@ class _KrvReceptState extends State<KrvRecept> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () {},
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
                               ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               onChanged: (value) {
                                 setState(() {
                                   _novo1 = double.parse(value);
@@ -1235,7 +1246,7 @@ class _KrvReceptState extends State<KrvRecept> {
                               },
                               controller: _novo1Controller,
                               decoration: InputDecoration(
-                                suffix: Text(
+                                suffix: const Text(
                                   '%',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -1248,7 +1259,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 3.0, horizontal: 7.0),
                               ),
                             ),
@@ -1269,9 +1280,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
                   //Novo2
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -1281,7 +1292,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage:
                               AssetImage('assets/icons/povrce.png'),
@@ -1299,7 +1310,7 @@ class _KrvReceptState extends State<KrvRecept> {
                             inputFormatters: [
                               LengthLimitingTextInputFormatter(9),
                             ],
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 hintText: '*Sastojak*',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
@@ -1317,15 +1328,16 @@ class _KrvReceptState extends State<KrvRecept> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () {},
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
                               ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               onChanged: (value) {
                                 setState(() {
                                   _novo2 = double.parse(value);
@@ -1333,7 +1345,7 @@ class _KrvReceptState extends State<KrvRecept> {
                               },
                               controller: _novo2Controller,
                               decoration: InputDecoration(
-                                suffix: Text(
+                                suffix: const Text(
                                   '%',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -1346,7 +1358,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 3.0, horizontal: 7.0),
                               ),
                             ),
@@ -1367,9 +1379,9 @@ class _KrvReceptState extends State<KrvRecept> {
                   ),
                   //Novo3
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     height: scaleheight * 60,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(30),
@@ -1379,7 +1391,7 @@ class _KrvReceptState extends State<KrvRecept> {
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 22,
                           backgroundImage:
                               AssetImage('assets/icons/povrce.png'),
@@ -1397,7 +1409,7 @@ class _KrvReceptState extends State<KrvRecept> {
                             inputFormatters: [
                               LengthLimitingTextInputFormatter(9),
                             ],
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 hintText: '*Sastojak*',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
@@ -1415,15 +1427,16 @@ class _KrvReceptState extends State<KrvRecept> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () {},
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
                               ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               onChanged: (value) {
                                 setState(() {
                                   _novo3 = double.parse(value);
@@ -1431,7 +1444,7 @@ class _KrvReceptState extends State<KrvRecept> {
                               },
                               controller: _novo3Controller,
                               decoration: InputDecoration(
-                                suffix: Text(
+                                suffix: const Text(
                                   '%',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -1444,7 +1457,7 @@ class _KrvReceptState extends State<KrvRecept> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 3.0, horizontal: 7.0),
                               ),
                             ),

@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers, unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
@@ -7,9 +9,10 @@ class PoizboruScreen extends StatefulWidget {
   //The BlagiScreen class is defined as a StatefulWidget that takes an int data parameter.
   //This parameter is used to determine the content of the screen based on its value.
 
-  PoizboruScreen({required this.data});
+  const PoizboruScreen({super.key, required this.data});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PoizboruScreenState createState() => _PoizboruScreenState();
 }
 
@@ -35,19 +38,19 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
   bool _novo2bool = false;
   bool _novo3bool = false;
 
-  TextEditingController _textController = TextEditingController();
-  TextEditingController _novo1Controller = TextEditingController();
-  TextEditingController _novo2Controller = TextEditingController();
-  TextEditingController _novo3Controller = TextEditingController();
-  TextEditingController _novo1imeController = TextEditingController();
-  TextEditingController _novo2imeController = TextEditingController();
-  TextEditingController _novo3imeController = TextEditingController();
-  TextEditingController _slatkaController = TextEditingController();
-  TextEditingController _ljutaController = TextEditingController();
-  TextEditingController _solController = TextEditingController();
-  TextEditingController _lukController = TextEditingController();
-  TextEditingController _secerController = TextEditingController();
-  TextEditingController _paparController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
+  final TextEditingController _novo1Controller = TextEditingController();
+  final TextEditingController _novo2Controller = TextEditingController();
+  final TextEditingController _novo3Controller = TextEditingController();
+  final TextEditingController _novo1imeController = TextEditingController();
+  final TextEditingController _novo2imeController = TextEditingController();
+  final TextEditingController _novo3imeController = TextEditingController();
+  final TextEditingController _slatkaController = TextEditingController();
+  final TextEditingController _ljutaController = TextEditingController();
+  final TextEditingController _solController = TextEditingController();
+  final TextEditingController _lukController = TextEditingController();
+  final TextEditingController _secerController = TextEditingController();
+  final TextEditingController _paparController = TextEditingController();
   int maxDigits = 9;
 //_BlagiScreenState class is defined as the state class for BlagiScreen. It extends the State class and overrides the necessary methods.
 // The class contains variables for various properties of the screen, such as _naslov, _slatkarez, _slatka, etc.
@@ -71,6 +74,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
   }
 
   // The initState method initializes these variables based on the data parameter passed to the screen.
+  @override
   void dispose() {
     _textController.dispose();
 
@@ -83,7 +87,8 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
     double scalewidth = MediaQuery.of(context).size.width / 400;
     double scaleheight = MediaQuery.of(context).size.height / 800;
     //Rezultati u gramima
-    double _slatkarezg = double.parse((_slatka * _kilograma).toStringAsFixed(1));
+    double _slatkarezg =
+        double.parse((_slatka * _kilograma).toStringAsFixed(1));
     double _ljutarezg = double.parse((_ljuta * _kilograma).toStringAsFixed(1));
     double _solrezg = double.parse((_sol * _kilograma).toStringAsFixed(1));
     double _lukrezg = double.parse((_luk * _kilograma).toStringAsFixed(1));
@@ -150,7 +155,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
             backgroundColor: Colors.transparent,
             leading: CupertinoButton(
               padding: EdgeInsets.zero,
-              child: Icon(
+              child: const Icon(
                 CupertinoIcons.back,
                 size: 44,
                 color: Colors.black87,
@@ -160,7 +165,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
               },
             ),
             flexibleSpace: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/icons/pozadina3.jpg'),
                   fit: BoxFit.cover,
@@ -173,7 +178,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
         body: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/icons/pozadina3.jpg'),
               fit: BoxFit.cover,
@@ -181,7 +186,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
             ),
           ),
           child: ListView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             children: [
               SizedBox(height: scaleheight * 10),
               Container(
@@ -190,7 +195,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 //To update it based on user input or other factors, you should consider using a setState method to update the value and reflect it in the UI.
                 width: scalewidth * 5,
                 height: scaleheight * 110,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                     color: Colors.black87,
                     borderRadius: BorderRadius.circular(20),
@@ -220,8 +225,8 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               fontSize: scalewidth * 22,
                               fontWeight: FontWeight.bold,
                             ),
-                            keyboardType:
-                                TextInputType.numberWithOptions(decimal: true),
+                            keyboardType: const TextInputType.numberWithOptions(
+                                decimal: true),
                             inputFormatters: [
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'^\d{0,3}(\.\d{0,1})?$')),
@@ -247,7 +252,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                                 borderRadius: BorderRadius.circular(8.0),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                   vertical: 3.0, horizontal: 7.0),
                             ),
                           ),
@@ -259,9 +264,9 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
               ),
               //Slatka
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -271,7 +276,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/paprika.png'),
                       backgroundColor: Colors.black87,
@@ -296,15 +301,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         behavior: HitTestBehavior.opaque,
                         onTap: () {},
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
-                              ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true),
                           onChanged: (value) {
                             setState(() {
                               _slatka = double.parse(value);
@@ -313,7 +318,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                           },
                           controller: _slatkaController,
                           decoration: InputDecoration(
-                            suffix: Text(
+                            suffix: const Text(
                               '%',
                               style: TextStyle(
                                 color: Colors.black,
@@ -326,7 +331,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 3.0, horizontal: 7.0),
                           ),
                         ),
@@ -336,21 +341,21 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                       width: scalewidth * 5,
                     ),
                     Text(
-                          _slatkabool ? '$_slatkarezkg kg' : '$_slatkarezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
-                          ),
-                        ),
+                      _slatkabool ? '$_slatkarezkg kg' : '$_slatkarezg g',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: scalewidth * 22,
+                      ),
+                    ),
                   ],
                 ),
               ),
 
               //Ljuta
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -360,7 +365,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/chili.png'),
                       backgroundColor: Colors.black87,
@@ -385,15 +390,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         behavior: HitTestBehavior.opaque,
                         onTap: () {},
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
-                              ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true),
                           onChanged: (value) {
                             setState(() {
                               _ljuta = double.parse(value);
@@ -402,7 +407,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                           },
                           controller: _ljutaController,
                           decoration: InputDecoration(
-                            suffix: Text(
+                            suffix: const Text(
                               '%',
                               style: TextStyle(
                                 color: Colors.black,
@@ -415,7 +420,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 3.0, horizontal: 7.0),
                           ),
                         ),
@@ -425,21 +430,21 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                       width: scalewidth * 5,
                     ),
                     Text(
-                          _ljutabool ? '$_ljutarezkg kg' : '$_ljutarezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
-                          ),
-                        ),
+                      _ljutabool ? '$_ljutarezkg kg' : '$_ljutarezg g',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: scalewidth * 22,
+                      ),
+                    ),
                   ],
                 ),
               ),
 
               //Sol
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -449,7 +454,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/sol.png'),
                       backgroundColor: Colors.black87,
@@ -474,15 +479,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         behavior: HitTestBehavior.opaque,
                         onTap: () {},
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
-                              ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true),
                           onChanged: (value) {
                             setState(() {
                               _sol = double.parse(value);
@@ -491,7 +496,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                           },
                           controller: _solController,
                           decoration: InputDecoration(
-                            suffix: Text(
+                            suffix: const Text(
                               '%',
                               style: TextStyle(
                                 color: Colors.black,
@@ -504,7 +509,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 3.0, horizontal: 7.0),
                           ),
                         ),
@@ -514,20 +519,20 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                       width: scalewidth * 5,
                     ),
                     Text(
-                          _solbool ? '$_solrezkg kg' : '$_solrezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
-                          ),
-                        ),
+                      _solbool ? '$_solrezkg kg' : '$_solrezg g',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: scalewidth * 22,
+                      ),
+                    ),
                   ],
                 ),
               ),
               //Češnjak
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -537,7 +542,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/cesnjak.png'),
                       backgroundColor: Colors.black87,
@@ -562,15 +567,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         behavior: HitTestBehavior.opaque,
                         onTap: () {},
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
-                              ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true),
                           onChanged: (value) {
                             setState(() {
                               _luk = double.parse(value);
@@ -579,7 +584,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                           },
                           controller: _lukController,
                           decoration: InputDecoration(
-                            suffix: Text(
+                            suffix: const Text(
                               '%',
                               style: TextStyle(
                                 color: Colors.black,
@@ -592,7 +597,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 3.0, horizontal: 7.0),
                           ),
                         ),
@@ -602,20 +607,20 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                       width: scalewidth * 5,
                     ),
                     Text(
-                          _lukbool ? '$_lukrezkg kg' : '$_lukrezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
-                          ),
-                        ),
+                      _lukbool ? '$_lukrezkg kg' : '$_lukrezg g',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: scalewidth * 22,
+                      ),
+                    ),
                   ],
                 ),
               ),
               //Papar
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -625,7 +630,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/papar.png'),
                       backgroundColor: Colors.black87,
@@ -650,15 +655,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         behavior: HitTestBehavior.opaque,
                         onTap: () {},
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
-                              ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true),
                           onChanged: (value) {
                             setState(() {
                               _papar = double.parse(value);
@@ -667,7 +672,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                           },
                           controller: _paparController,
                           decoration: InputDecoration(
-                            suffix: Text(
+                            suffix: const Text(
                               '%',
                               style: TextStyle(
                                 color: Colors.black,
@@ -680,7 +685,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 3.0, horizontal: 7.0),
                           ),
                         ),
@@ -690,20 +695,20 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                       width: scalewidth * 5,
                     ),
                     Text(
-                          _paparbool ? '$_paparrezkg kg' : '$_paparrezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
-                          ),
-                        ),
+                      _paparbool ? '$_paparrezkg kg' : '$_paparrezg g',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: scalewidth * 22,
+                      ),
+                    ),
                   ],
                 ),
               ),
               //Šećer
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -713,7 +718,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/secer.png'),
                       backgroundColor: Colors.black87,
@@ -738,15 +743,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         behavior: HitTestBehavior.opaque,
                         onTap: () {},
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
-                              ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true),
                           onChanged: (value) {
                             setState(() {
                               _secer = double.parse(value);
@@ -755,7 +760,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                           },
                           controller: _secerController,
                           decoration: InputDecoration(
-                            suffix: Text(
+                            suffix: const Text(
                               '%',
                               style: TextStyle(
                                 color: Colors.black,
@@ -768,7 +773,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 3.0, horizontal: 7.0),
                           ),
                         ),
@@ -778,20 +783,20 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                       width: scalewidth * 5,
                     ),
                     Text(
-                          _secerbool ? '$_secerrezkg kg' : '$_secerrezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
-                          ),
-                        ),
+                      _secerbool ? '$_secerrezkg kg' : '$_secerrezg g',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: scalewidth * 22,
+                      ),
+                    ),
                   ],
                 ),
               ),
               //Novo1
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -801,7 +806,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/povrce.png'),
                       backgroundColor: Colors.black87,
@@ -818,7 +823,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         inputFormatters: [
                           LengthLimitingTextInputFormatter(9),
                         ],
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             hintText: '*Sastojak*',
                             hintStyle: TextStyle(
                               color: Colors.grey,
@@ -836,15 +841,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         behavior: HitTestBehavior.opaque,
                         onTap: () {},
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
-                              ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true),
                           onChanged: (value) {
                             setState(() {
                               _novo1 = double.parse(value);
@@ -852,7 +857,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                           },
                           controller: _novo1Controller,
                           decoration: InputDecoration(
-                            suffix: Text(
+                            suffix: const Text(
                               '%',
                               style: TextStyle(
                                 color: Colors.black,
@@ -865,7 +870,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 3.0, horizontal: 7.0),
                           ),
                         ),
@@ -875,20 +880,20 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                       width: scalewidth * 5,
                     ),
                     Text(
-                          _novo1bool ? '$_novo1rezkg kg' : '$_novo1rezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
-                          ),
-                        ),
+                      _novo1bool ? '$_novo1rezkg kg' : '$_novo1rezg g',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: scalewidth * 22,
+                      ),
+                    ),
                   ],
                 ),
               ),
               //Novo2
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -898,7 +903,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/povrce.png'),
                       backgroundColor: Colors.black87,
@@ -915,7 +920,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         inputFormatters: [
                           LengthLimitingTextInputFormatter(9),
                         ],
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             hintText: '*Sastojak*',
                             hintStyle: TextStyle(
                               color: Colors.grey,
@@ -933,15 +938,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         behavior: HitTestBehavior.opaque,
                         onTap: () {},
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
-                              ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true),
                           onChanged: (value) {
                             setState(() {
                               _novo2 = double.parse(value);
@@ -949,7 +954,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                           },
                           controller: _novo2Controller,
                           decoration: InputDecoration(
-                            suffix: Text(
+                            suffix: const Text(
                               '%',
                               style: TextStyle(
                                 color: Colors.black,
@@ -962,7 +967,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 3.0, horizontal: 7.0),
                           ),
                         ),
@@ -972,20 +977,20 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                       width: scalewidth * 5,
                     ),
                     Text(
-                          _novo2bool ? '$_novo2rezkg kg' : '$_novo2rezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
-                          ),
-                        ),
+                      _novo2bool ? '$_novo2rezkg kg' : '$_novo2rezg g',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: scalewidth * 22,
+                      ),
+                    ),
                   ],
                 ),
               ),
               //Novo3
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -995,7 +1000,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/povrce.png'),
                       backgroundColor: Colors.black87,
@@ -1012,7 +1017,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         inputFormatters: [
                           LengthLimitingTextInputFormatter(9),
                         ],
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             hintText: '*Sastojak*',
                             hintStyle: TextStyle(
                               color: Colors.grey,
@@ -1030,15 +1035,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                         behavior: HitTestBehavior.opaque,
                         onTap: () {},
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
-                              ],
-                              keyboardType: TextInputType.numberWithOptions(
-                                  decimal: true),
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d{0,2}(\.\d{0,2})?$')),
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true),
                           onChanged: (value) {
                             setState(() {
                               _novo3 = double.parse(value);
@@ -1046,7 +1051,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                           },
                           controller: _novo3Controller,
                           decoration: InputDecoration(
-                            suffix: Text(
+                            suffix: const Text(
                               '%',
                               style: TextStyle(
                                 color: Colors.black,
@@ -1059,7 +1064,7 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 3.0, horizontal: 7.0),
                           ),
                         ),
@@ -1069,12 +1074,12 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                       width: scalewidth * 5,
                     ),
                     Text(
-                          _novo3bool ? '$_novo3rezkg kg' : '$_novo3rezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
-                          ),
-                        ),
+                      _novo3bool ? '$_novo3rezkg kg' : '$_novo3rezg g',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: scalewidth * 22,
+                      ),
+                    ),
                   ],
                 ),
               ),

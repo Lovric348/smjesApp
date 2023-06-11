@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_application_1/pages/blagiScreen.dart';
-import 'package:flutter_application_1/pages/srednjiScreen.dart';
-import 'package:flutter_application_1/pages/ljutiScreen.dart';
-import 'package:flutter_application_1/pages/poIzboru.dart';
+import 'package:flutter_application_1/pages/blagi_screen.dart';
+import 'package:flutter_application_1/pages/srednji_screen.dart';
+import 'package:flutter_application_1/pages/ljuti_screen.dart';
+import 'package:flutter_application_1/pages/po_izboru.dart';
 
 class Kulen extends StatelessWidget {
   const Kulen({super.key});
 
   @override
   Widget build(BuildContext context) {
-   double scalewidth = MediaQuery.of(context).size.width / 400;
-   double scaleheight = MediaQuery.of(context).size.height / 800;
+    double scalewidth = MediaQuery.of(context).size.width / 400;
+    double scaleheight = MediaQuery.of(context).size.height / 800;
     return Scaffold(
-      
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
@@ -22,12 +21,12 @@ class Kulen extends StatelessWidget {
             Text(
               'Kulen',
               style: TextStyle(
-        fontSize: scalewidth * 43,
-        foreground: Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 2
-          ..color = Colors.black,
-            ),
+                fontSize: scalewidth * 43,
+                foreground: Paint()
+                  ..style = PaintingStyle.stroke
+                  ..strokeWidth = 2
+                  ..color = Colors.black,
+              ),
             ),
             Text(
               'Kulen',
@@ -42,7 +41,11 @@ class Kulen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: CupertinoButton(
           padding: EdgeInsets.zero,
-          child: Icon(CupertinoIcons.back, size: 44, color: Colors.black87,),
+          child: const Icon(
+            CupertinoIcons.back,
+            size: 44,
+            color: Colors.black87,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -51,16 +54,15 @@ class Kulen extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/icons/pozadina3.jpg'),
             fit: BoxFit.cover,
             opacity: 0.9,
           ),
         ),
-        child: ListView(
-          physics: BouncingScrollPhysics(),
-          children: <Widget>[
+        child:
+            ListView(physics: const BouncingScrollPhysics(), children: <Widget>[
           //Blagi recept
           SizedBox(height: scaleheight * 90),
 
@@ -69,19 +71,38 @@ class Kulen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => BlagiScreen(
+                    builder: (context) => const BlagiScreen(
                           data: 10,
                         )),
               );
             },
             child: Container(
+              margin: const EdgeInsets.only(
+                left: 20,
+                right: 20,
+              ),
+              width: scalewidth * 1,
+              height: scaleheight * 60,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  image: AssetImage('assets/icons/kulen.jpeg'),
+                  fit: BoxFit.cover,
+                  opacity: 0.4,
+                ),
+                color: Colors.black87,
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(
+                  width: scalewidth * 2,
+                  color: Colors.black,
+                ),
+              ),
               child: Row(
                 children: [
                   SizedBox(width: scalewidth * 10),
                   Container(
                     width: scalewidth * 30,
                     height: scaleheight * 35,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/icons/chili.png'),
                         fit: BoxFit.cover,
@@ -94,28 +115,10 @@ class Kulen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: scalewidth * 30,
-                      color: Color.fromARGB(255, 220, 216, 216),
+                      color: const Color.fromARGB(255, 220, 216, 216),
                     ),
                   ),
                 ],
-              ),
-              margin: EdgeInsets.only(left: 20,
-              right: 20,
-              ),
-              width: scalewidth * 1,
-              height: scaleheight * 60,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/icons/kulen.jpeg'),
-                  fit: BoxFit.cover,
-                  opacity: 0.4,
-                ),
-                color: Colors.black87,
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(
-                  width: scalewidth * 2,
-                  color: Colors.black,
-                ),
               ),
             ),
           ),
@@ -125,20 +128,39 @@ class Kulen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => SrednjiScreen(
+                    builder: (context) => const SrednjiScreen(
                           data: 11,
                         )),
               );
             },
             child: Container(
-              
+              margin: const EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 40,
+              ),
+              width: scalewidth * 1,
+              height: scaleheight * 60,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  image: AssetImage('assets/icons/kulen.jpeg'),
+                  fit: BoxFit.cover,
+                  opacity: 0.5,
+                ),
+                color: Colors.black87,
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(
+                  width: scalewidth * 3,
+                  color: Colors.black,
+                ),
+              ),
               child: Row(
                 children: [
                   SizedBox(width: scalewidth * 10),
                   Container(
                     width: scalewidth * 30,
                     height: scaleheight * 35,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/icons/chili.png'),
                         fit: BoxFit.cover,
@@ -148,7 +170,7 @@ class Kulen extends StatelessWidget {
                   Container(
                     width: scalewidth * 30,
                     height: scaleheight * 35,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/icons/chili.png'),
                         fit: BoxFit.cover,
@@ -161,28 +183,10 @@ class Kulen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: scalewidth * 30,
-                      color: Color.fromARGB(255, 220, 216, 216),
+                      color: const Color.fromARGB(255, 220, 216, 216),
                     ),
                   ),
                 ],
-              ),
-              margin: EdgeInsets.only(left: 20,
-              right: 20,
-              top: 40,),
-              width: scalewidth * 1,
-              height: scaleheight * 60,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/icons/kulen.jpeg'),
-                  fit: BoxFit.cover,
-                  opacity: 0.5,
-                ),
-                color: Colors.black87,
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(
-                  width: scalewidth * 3,
-                  color: Colors.black,
-                ),
               ),
             ),
           ),
@@ -192,19 +196,36 @@ class Kulen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => LjutiScreen(
+                    builder: (context) => const LjutiScreen(
                           data: 12,
                         )),
               );
             },
             child: Container(
+              margin: const EdgeInsets.only(
+                  left: 20, right: 20, top: 50, bottom: 20),
+              width: scalewidth * 1,
+              height: scaleheight * 60,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  image: AssetImage('assets/icons/kulen.jpeg'),
+                  fit: BoxFit.cover,
+                  opacity: 0.4,
+                ),
+                color: Colors.black87,
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(
+                  width: scalewidth * 3,
+                  color: Colors.black,
+                ),
+              ),
               child: Row(
                 children: [
                   SizedBox(width: scalewidth * 10),
                   Container(
                     width: scalewidth * 30,
                     height: scaleheight * 35,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/icons/chili.png'),
                         fit: BoxFit.cover,
@@ -214,7 +235,7 @@ class Kulen extends StatelessWidget {
                   Container(
                     width: scalewidth * 30,
                     height: scaleheight * 35,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/icons/chili.png'),
                         fit: BoxFit.cover,
@@ -224,7 +245,7 @@ class Kulen extends StatelessWidget {
                   Container(
                     width: scalewidth * 30,
                     height: scaleheight * 35,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/icons/chili.png'),
                         fit: BoxFit.cover,
@@ -237,29 +258,10 @@ class Kulen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: scalewidth * 30,
-                      color: Color.fromARGB(255, 220, 216, 216),
+                      color: const Color.fromARGB(255, 220, 216, 216),
                     ),
                   ),
                 ],
-              ),
-              margin: EdgeInsets.only(left: 20,
-              right: 20,
-              top: 50,
-              bottom: 20),
-              width: scalewidth * 1,
-              height: scaleheight * 60,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/icons/kulen.jpeg'),
-                  fit: BoxFit.cover,
-                  opacity: 0.4,
-                ),
-                color: Colors.black87,
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(
-                  width: scalewidth * 3,
-                  color: Colors.black,
-                ),
               ),
             ),
           ),
@@ -268,32 +270,21 @@ class Kulen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => PoizboruScreen(
+                    builder: (context) => const PoizboruScreen(
                           data: 13,
                         )),
               );
             },
             child: Container(
-              child: Row(
-                children: [
-                  SizedBox(width: scalewidth * 100),
-                  Text(
-                    "Po izboru",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: scalewidth * 30,
-                      color: Color.fromARGB(255, 220, 216, 216),
-                    ),
-                  ),
-                ],
+              margin: const EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 40,
               ),
-              margin: EdgeInsets.only(left: 20,
-              right: 20,
-              top: 40,),
               width: scalewidth * 1,
               height: scaleheight * 60,
               decoration: BoxDecoration(
-                image: DecorationImage(
+                image: const DecorationImage(
                   image: AssetImage('assets/icons/kulen.jpeg'),
                   fit: BoxFit.cover,
                   opacity: 0.4,
@@ -304,6 +295,19 @@ class Kulen extends StatelessWidget {
                   width: scalewidth * 3,
                   color: Colors.black,
                 ),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(width: scalewidth * 100),
+                  Text(
+                    "Po izboru",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: scalewidth * 30,
+                      color: const Color.fromARGB(255, 220, 216, 216),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

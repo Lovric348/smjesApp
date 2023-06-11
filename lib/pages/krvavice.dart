@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_application_1/pages/alertDialog.dart';
-import 'package:flutter_application_1/pages/krvaviceRecept.dart';
+import 'package:flutter_application_1/pages/alert_dialog.dart';
+import 'package:flutter_application_1/pages/krvavice_recept.dart';
 
 class Krvavice extends StatelessWidget {
   const Krvavice({super.key});
 
   @override
   Widget build(BuildContext context) {
-   double scalewidth = MediaQuery.of(context).size.width / 400;
-   double scaleheight = MediaQuery.of(context).size.height / 800;
+    double scalewidth = MediaQuery.of(context).size.width / 400;
+    double scaleheight = MediaQuery.of(context).size.height / 800;
     return Scaffold(
       extendBodyBehindAppBar: true,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
               context: context,
-              builder: (context) => AlertDial(
+              builder: (context) => const AlertDial(
                     data: 11,
                   ));
         },
-        backgroundColor: Color.fromARGB(255, 195, 191, 191),
-        child: Icon(
+        backgroundColor: const Color.fromARGB(255, 195, 191, 191),
+        elevation: 3,
+        child: const Icon(
           CupertinoIcons.info,
           color: Colors.black,
           size: 30,
         ),
-        elevation: 3,
       ),
       appBar: AppBar(
         centerTitle: true,
@@ -55,7 +55,7 @@ class Krvavice extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: CupertinoButton(
           padding: EdgeInsets.zero,
-          child: Icon(
+          child: const Icon(
             CupertinoIcons.back,
             size: 44,
             color: Colors.black87,
@@ -68,16 +68,15 @@ class Krvavice extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/icons/pozadina3.jpg'),
             fit: BoxFit.cover,
             opacity: 0.9,
           ),
         ),
-        child: ListView(
-          physics: BouncingScrollPhysics(),
-          children: <Widget>[
+        child:
+            ListView(physics: const BouncingScrollPhysics(), children: <Widget>[
           //Slavonski recept
           SizedBox(height: scaleheight * 90),
 
@@ -86,34 +85,20 @@ class Krvavice extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => KrvRecept(
+                    builder: (context) => const KrvRecept(
                           data: 22,
                         )),
               );
             },
             child: Container(
-              child: Row(
-                children: [
-                  SizedBox(width: 10),
-                  SizedBox(width: 87),
-                  Text(
-                    "Slavonski",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: scalewidth * 30,
-                      color: Color.fromARGB(255, 220, 216, 216),
-                    ),
-                  ),
-                ],
-              ),
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 left: 20,
                 right: 20,
               ),
               width: scalewidth * 1,
               height: scaleheight * 60,
               decoration: BoxDecoration(
-                image: DecorationImage(
+                image: const DecorationImage(
                   image: AssetImage('assets/icons/krvavica.jpg'),
                   fit: BoxFit.cover,
                   opacity: 0.4,
@@ -125,6 +110,20 @@ class Krvavice extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
+              child: Row(
+                children: [
+                  const SizedBox(width: 10),
+                  const SizedBox(width: 87),
+                  Text(
+                    "Slavonski",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: scalewidth * 30,
+                      color: const Color.fromARGB(255, 220, 216, 216),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           // Po izboru
@@ -133,26 +132,13 @@ class Krvavice extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => KrvRecept(
+                    builder: (context) => const KrvRecept(
                           data: 33,
                         )),
               );
             },
             child: Container(
-              child: Row(
-                children: [
-                  SizedBox(width: 100),
-                  Text(
-                    "Po izboru",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: scalewidth * 30,
-                      color: Color.fromARGB(255, 220, 216, 216),
-                    ),
-                  ),
-                ],
-              ),
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 left: 20,
                 right: 20,
                 top: 40,
@@ -160,7 +146,7 @@ class Krvavice extends StatelessWidget {
               width: scalewidth * 1,
               height: scaleheight * 60,
               decoration: BoxDecoration(
-                image: DecorationImage(
+                image: const DecorationImage(
                   image: AssetImage('assets/icons/krvavica.jpg'),
                   fit: BoxFit.cover,
                   opacity: 0.4,
@@ -171,6 +157,19 @@ class Krvavice extends StatelessWidget {
                   width: scalewidth * 3,
                   color: Colors.black,
                 ),
+              ),
+              child: Row(
+                children: [
+                  const SizedBox(width: 100),
+                  Text(
+                    "Po izboru",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: scalewidth * 30,
+                      color: const Color.fromARGB(255, 220, 216, 216),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

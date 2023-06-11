@@ -1,16 +1,18 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers, duplicate_ignore, unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-
 
 class BlagiScreen extends StatefulWidget {
   final int data;
   //The BlagiScreen class is defined as a StatefulWidget that takes an int data parameter.
   //This parameter is used to determine the content of the screen based on its value.
 
-  BlagiScreen({required this.data});
+  const BlagiScreen({super.key, required this.data});
 
   @override
+  // ignore: library_private_types_in_public_api
   _BlagiScreenState createState() => _BlagiScreenState();
 }
 
@@ -22,7 +24,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
   double _luk = 0.0;
   double _kilograma = 0.0;
 
-  TextEditingController _textController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
   int maxDigits = 3;
 //_BlagiScreenState class is defined as the state class for BlagiScreen. It extends the State class and overrides the necessary methods.
 // The class contains variables for various properties of the screen, such as _naslov, _slatkarez, _slatka, etc.
@@ -53,6 +55,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
   }
 
   //The initState method initializes these variables based on the data parameter passed to the screen.
+  @override
   void dispose() {
     _textController.dispose();
     super.dispose();
@@ -63,11 +66,13 @@ class _BlagiScreenState extends State<BlagiScreen> {
   Widget build(BuildContext context) {
     double scalewidth = MediaQuery.of(context).size.width / 400;
     double scaleheight = MediaQuery.of(context).size.height / 800;
+    // ignore: no_leading_underscores_for_local_identifiers
     double _slatkarez =
         double.parse(((_slatka * _kilograma) * 100).toStringAsFixed(1));
 
     // build method include the calculation of _slatkarez as the product of _slatka and _kilograma.
     //.toStringAsFixed(1) rounds the result to one decimal space
+    // ignore: no_leading_underscores_for_local_identifiers
     double _ljutarez =
         double.parse(((_ljuta * _kilograma) * 100).toStringAsFixed(1));
     double _solrez =
@@ -90,8 +95,6 @@ class _BlagiScreenState extends State<BlagiScreen> {
     if (_lukrez > 999) {
       _lukrez = 0;
     }
-    
-      
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -146,7 +149,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
             backgroundColor: Colors.transparent,
             leading: CupertinoButton(
               padding: EdgeInsets.zero,
-              child: Icon(
+              child: const Icon(
                 CupertinoIcons.back,
                 size: 44,
                 color: Colors.black87,
@@ -156,7 +159,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
               },
             ),
             flexibleSpace: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/icons/pozadina3.jpg'),
                   fit: BoxFit.cover,
@@ -170,7 +173,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
         body: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/icons/pozadina3.jpg'),
               fit: BoxFit.cover,
@@ -178,7 +181,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
             ),
           ),
           child: ListView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             children: [
               SizedBox(height: scaleheight * 10),
               Container(
@@ -187,7 +190,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
                 //To update it based on user input or other factors, you should consider using a setState method to update the value and reflect it in the UI.
                 width: scalewidth * 5,
                 height: scaleheight * 110,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                     color: Colors.black87,
                     borderRadius: BorderRadius.circular(20),
@@ -217,11 +220,13 @@ class _BlagiScreenState extends State<BlagiScreen> {
                               fontSize: scalewidth * 22,
                               fontWeight: FontWeight.bold,
                             ),
-                            keyboardType: TextInputType.numberWithOptions(decimal: true),
-      inputFormatters: [
-        FilteringTextInputFormatter.allow(RegExp(r'^\d{0,3}(\.\d{0,1})?$')),
+                            keyboardType: const TextInputType.numberWithOptions(
+                                decimal: true),
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d{0,3}(\.\d{0,1})?$')),
                             ],
-                            //This pattern allows for up to three digits before the decimal point (0-999) 
+                            //This pattern allows for up to three digits before the decimal point (0-999)
                             //and allows for an optional decimal point followed by up to one digit.
                             onChanged: (value) {
                               setState(() {
@@ -244,7 +249,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
                                 borderRadius: BorderRadius.circular(8.0),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                   vertical: 3.0, horizontal: 7.0),
                             ),
                           ),
@@ -256,9 +261,9 @@ class _BlagiScreenState extends State<BlagiScreen> {
               ),
               //Slatka
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -268,7 +273,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/paprika.png'),
                       backgroundColor: Colors.black87,
@@ -299,9 +304,9 @@ class _BlagiScreenState extends State<BlagiScreen> {
 
               //Ljuta
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -311,7 +316,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/chili.png'),
                       backgroundColor: Colors.black87,
@@ -342,9 +347,9 @@ class _BlagiScreenState extends State<BlagiScreen> {
 
               //Sol
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -354,7 +359,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/sol.png'),
                       backgroundColor: Colors.black87,
@@ -384,9 +389,9 @@ class _BlagiScreenState extends State<BlagiScreen> {
               ),
               //Češnjak
               Container(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 height: scaleheight * 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.circular(30),
@@ -396,7 +401,7 @@ class _BlagiScreenState extends State<BlagiScreen> {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 22,
                       backgroundImage: AssetImage('assets/icons/cesnjak.png'),
                       backgroundColor: Colors.black87,
