@@ -12,7 +12,7 @@ On the homepage, we are greeted with a selection of specialties, as well as a "D
 
 When selecting the specialty we want to prepare, a screen opens with three predefined recipes (mild, medium, spicy) and the option to customize the quantity of ingredients with the "Po izboru" button.
 
-<img width="244" alt="Screenshot 2023-06-11 000514" src="https://github.com/Lovric348/smjesApp/assets/70754640/3b9ec376-e01d-485b-b6fc-193e52a2670c">
+<img width="244" alt="Screenshot 2023-06-11 000619" src="https://github.com/Lovric348/smjesApp/assets/70754640/8d61a646-ec9c-4808-9f15-9157dffea04c">
 
 
 On each recipe screen, we first enter the weight of the mixture in kilograms.
