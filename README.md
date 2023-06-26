@@ -4,7 +4,11 @@ Welcome to smjesApp, a Flutter project for creating Eastern European specialties
 
 ## DOWNLOAD
 
-[Click here to download](https://github.com/Lovric348/smjesApp/releases/tag/v0.1.0)
+[Click here to download](https://github.com/Lovric348/smjesApp/releases)
+
+Guide to install app [HERE](https://www.youtube.com/watch?v=N0M4XGkpCn4&t=1s)
+
+
 
 ## Guide to using the app
 
