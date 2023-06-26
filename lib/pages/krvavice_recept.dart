@@ -32,10 +32,17 @@ class _KrvReceptState extends State<KrvRecept> {
   bool _solbool = false;
   bool _paparbool = false;
   bool _lukbool = false;
+  bool _krvbool = false;
   bool _novo1bool = false;
   bool _novo2bool = false;
   bool _novo3bool = false;
-
+  bool _slatkabool1 = false;
+  bool _ljutabool1 = false;
+  bool _solbool1 = false;
+  bool _paparbool1 = false;
+  bool _lukbool1 = false;
+  bool _krvbool1 = false;
+ 
   final TextEditingController _textController = TextEditingController();
   final TextEditingController _slatkaController = TextEditingController();
   final TextEditingController _ljutaController = TextEditingController();
@@ -97,10 +104,11 @@ class _KrvReceptState extends State<KrvRecept> {
     double _solrezkg = double.parse((_solrezg / 1000).toStringAsFixed(1));
     double _lukrezkg = double.parse((_lukrezg / 1000).toStringAsFixed(1));
     double _paparrezkg = double.parse((_paparrezg / 1000).toStringAsFixed(1));
-
+    double _krvrezl = double.parse((_krvrezg / 100).toStringAsFixed(1));
     double _novo1rezkg = double.parse((_novo1rezg / 1000).toStringAsFixed(1));
     double _novo2rezkg = double.parse((_novo2rezg / 1000).toStringAsFixed(1));
     double _novo3rezkg = double.parse((_novo3rezg / 1000).toStringAsFixed(1));
+    
     //Rezultat
     double _slatkarezg1 =
         double.parse(((_slatka * _kilograma) * 100).toStringAsFixed(1));
@@ -115,6 +123,13 @@ class _KrvReceptState extends State<KrvRecept> {
     double _krvrez1 =
         double.parse(((_krv * _kilograma) * 10).toStringAsFixed(0));
 
+    double _slatkarezkg1 = double.parse((_slatkarezg1 / 1000).toStringAsFixed(1));
+    double _ljutarezkg1 = double.parse((_ljutarez1 / 1000).toStringAsFixed(1));
+    double _solrezkg1 = double.parse((_solrez1 / 1000).toStringAsFixed(1));
+    double _lukrezkg1 = double.parse((_lukrez1 / 1000).toStringAsFixed(1));
+    double _paparrezkg1 = double.parse((_paparrez1 / 1000).toStringAsFixed(1));
+    double _krvrezl1 = double.parse((_krvrez1 / 100).toStringAsFixed(1));    
+
     //Postotak
     double _slatkapos = double.parse((_slatka * 100).toStringAsFixed(1));
     double _ljutapos = double.parse((_ljuta * 100).toStringAsFixed(1));
@@ -123,31 +138,23 @@ class _KrvReceptState extends State<KrvRecept> {
     double _krvpos = double.parse((_krv * 100).toStringAsFixed(1));
     double _paparpos = double.parse((_papar * 100).toStringAsFixed(1));
 
-    if (_ljutarez1 > 9999) {
-      _ljutarez1 = 0;
-    }
-    if (_solrez1 > 9999) {
-      _solrez1 = 0;
-    }
-    if (_lukrez1 > 9999) {
-      _lukrez1 = 0;
-    }
-    if (_paparrez1 > 9999) {
-      _paparrez1 = 0;
-    }
-    if (_krvrez1 > 9999) {
-      _krvrez1 = 0;
-    }
-
-    _slatkabool = _slatkarezg > 999 ? true : false;
+    _slatkabool = _slatkarezg > 999? true : false;
     _ljutabool = _ljutarezg > 999 ? true : false;
     _paparbool = _paparrezg > 999 ? true : false;
     _solbool = _solrezg > 999 ? true : false;
-
-    _lukbool = _lukrezg > 999 ? true : false;
+    _krvbool = _krvrezg > 999 ? true : false;
+    _lukbool = _lukrezg > 999? true : false;
     _novo1bool = _novo1rezg > 999 ? true : false;
     _novo2bool = _novo2rezg > 999 ? true : false;
     _novo3bool = _novo3rezg > 999 ? true : false;
+
+    _slatkabool1 = _slatkarezg1 > 999 ? true : false;
+    _ljutabool1 = _ljutarez1 >999 ? true : false;
+    _paparbool1 = _paparrez1 > 999 ? true : false;
+    _solbool1 =  _solrez1 > 999 ? true : false;
+    _krvbool1 = _krvrez1 > 999 ? true : false;
+    _lukbool1 = _lukrez1 > 999 ? true : false;
+    
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -331,11 +338,15 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 27,
                         ),
-                        Text(
-                          _slatkabool ? '$_slatkarezg1 kg' : '$_slatkarezg1 g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _slatkabool1 ? '$_slatkarezkg1 kg' : '$_slatkarezg1 g',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -374,12 +385,14 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 37,
                         ),
-                        Text(
-                          '$_ljutarez1 g',
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                          _ljutabool1 ? '$_ljutarezkg1 kg' : '$_ljutarez1 g',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: scalewidth * 22,
-                          ),
+                          ),),),
                         ),
                       ],
                     ),
@@ -417,12 +430,14 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 121,
                         ),
-                        Text(
-                          '$_solrez1 g',
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                          _solbool1 ? '$_solrezkg1 kg' : '$_solrez1 g',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: scalewidth * 22,
-                          ),
+                          ),),),
                         ),
                       ],
                     ),
@@ -459,12 +474,14 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 57,
                         ),
-                        Text(
-                          '$_lukrez1 g',
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                          _lukbool1 ? '$_lukrezkg1 kg' : '$_lukrez1 g',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: scalewidth * 22,
-                          ),
+                          ),),),
                         ),
                       ],
                     ),
@@ -501,12 +518,14 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 115,
                         ),
-                        Text(
-                          '$_krvrez1 dl',
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                          _krvbool1 ? '$_krvrezl1 l' : '$_krvrez1 ml',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: scalewidth * 22,
-                          ),
+                          ),),),
                         ),
                       ],
                     ),
@@ -543,12 +562,14 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 112,
                         ),
-                        Text(
-                          '$_paparrez1 g',
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                          _paparbool1 ? '$_paparrezkg1 kg' : '$_paparrez1 g',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: scalewidth * 22,
-                          ),
+                          ),),),
                         ),
                       ],
                     ),
@@ -722,11 +743,17 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 10,
                         ),
-                        Text(
-                          _slatkabool ? '$_slatkarezkg kg' : '$_slatkarezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _slatkabool
+                                  ? '$_slatkarezkg kg'
+                                  : '$_slatkarezg g',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -812,11 +839,15 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 10,
                         ),
-                        Text(
-                          _ljutabool ? '$_ljutarezkg kg' : '$_ljutarezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _ljutabool ? '$_ljutarezkg kg' : '$_ljutarezg g',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -902,11 +933,15 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 10,
                         ),
-                        Text(
-                          _solbool ? '$_solrezkg kg' : '$_solrezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _solbool ? '$_solrezkg kg' : '$_solrezg g',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -991,11 +1026,15 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 10,
                         ),
-                        Text(
-                          _lukbool ? '$_lukrezkg kg' : '$_lukrezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _lukbool ? '$_lukrezkg kg' : '$_lukrezg g',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -1080,11 +1119,15 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 10,
                         ),
-                        Text(
-                          _paparbool ? '$_paparrezkg kg' : '$_paparrezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _paparbool ? '$_paparrezkg kg' : '$_paparrezg g',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -1169,11 +1212,15 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 8,
                         ),
-                        Text(
-                          '$_krvrezg dl',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _krvbool ? '$_krvrezl l' : '$_krvrez1 ml',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -1268,11 +1315,15 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 10,
                         ),
-                        Text(
-                          _novo1bool ? '$_novo1rezkg kg' : '$_novo1rezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _novo1bool ? '$_novo1rezkg kg' : '$_novo1rezg g',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -1367,11 +1418,15 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 10,
                         ),
-                        Text(
-                          _novo2bool ? '$_novo2rezkg kg' : '$_novo2rezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _novo2bool ? '$_novo2rezkg kg' : '$_novo2rezg g',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -1466,11 +1521,15 @@ class _KrvReceptState extends State<KrvRecept> {
                         SizedBox(
                           width: scalewidth * 10,
                         ),
-                        Text(
-                          _novo3bool ? '$_novo3rezkg kg' : '$_novo3rezg g',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: scalewidth * 22,
+                        Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              _novo3bool ? '$_novo3rezkg kg' : '$_novo3rezg g',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: scalewidth * 22,
+                              ),
+                            ),
                           ),
                         ),
                       ],

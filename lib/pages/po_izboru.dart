@@ -340,13 +340,19 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                     SizedBox(
                       width: scalewidth * 5,
                     ),
-                    Text(
-                      _slatkabool ? '$_slatkarezkg kg' : '$_slatkarezg g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
-                      ),
-                    ),
+                     Flexible(
+                       child: FittedBox(
+                        
+                          child: Text(
+                            _slatkabool ? '$_slatkarezkg kg' : '$_slatkarezg g',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: scalewidth * 22,
+                            ),
+                          ),
+                        ),
+                     ),
+                    
                   ],
                 ),
               ),
@@ -429,11 +435,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                     SizedBox(
                       width: scalewidth * 5,
                     ),
-                    Text(
-                      _ljutabool ? '$_ljutarezkg kg' : '$_ljutarezg g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _ljutabool ? '$_ljutarezkg kg' : '$_ljutarezg g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -518,11 +528,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                     SizedBox(
                       width: scalewidth * 5,
                     ),
-                    Text(
-                      _solbool ? '$_solrezkg kg' : '$_solrezg g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _solbool ? '$_solrezkg kg' : '$_solrezg g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -606,11 +620,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                     SizedBox(
                       width: scalewidth * 5,
                     ),
-                    Text(
-                      _lukbool ? '$_lukrezkg kg' : '$_lukrezg g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _lukbool ? '$_lukrezkg kg' : '$_lukrezg g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -694,11 +712,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                     SizedBox(
                       width: scalewidth * 5,
                     ),
-                    Text(
-                      _paparbool ? '$_paparrezkg kg' : '$_paparrezg g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _paparbool ? '$_paparrezkg kg' : '$_paparrezg g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -782,11 +804,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                     SizedBox(
                       width: scalewidth * 5,
                     ),
-                    Text(
-                      _secerbool ? '$_secerrezkg kg' : '$_secerrezg g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _secerbool ? '$_secerrezkg kg' : '$_secerrezg g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -879,11 +905,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                     SizedBox(
                       width: scalewidth * 5,
                     ),
-                    Text(
-                      _novo1bool ? '$_novo1rezkg kg' : '$_novo1rezg g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _novo1bool ? '$_novo1rezkg kg' : '$_novo1rezg g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -976,11 +1006,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                     SizedBox(
                       width: scalewidth * 5,
                     ),
-                    Text(
-                      _novo2bool ? '$_novo2rezkg kg' : '$_novo2rezg g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _novo2bool ? '$_novo2rezkg kg' : '$_novo2rezg g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -1073,11 +1107,15 @@ class _PoizboruScreenState extends State<PoizboruScreen> {
                     SizedBox(
                       width: scalewidth * 5,
                     ),
-                    Text(
-                      _novo3bool ? '$_novo3rezkg kg' : '$_novo3rezg g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _novo3bool ? '$_novo3rezkg kg' : '$_novo3rezg g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
