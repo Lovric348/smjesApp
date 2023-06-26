@@ -23,6 +23,10 @@ class _SrednjiScreenState extends State<SrednjiScreen> {
   double _sol = 0.0;
   double _luk = 0.0;
   double _kilograma = 0.0;
+  bool _slatkabool = false;
+  bool _ljutabool = false;
+  bool _solbool = false;
+  bool _lukbool = false;
 
   final TextEditingController _textController = TextEditingController();
   int maxDigits = 3;
@@ -49,7 +53,7 @@ class _SrednjiScreenState extends State<SrednjiScreen> {
     } else if (widget.data == 11) {
       _naslov = 'Kulen srednji';
       _slatka = 0.003;
-      _ljuta = 0.07;
+      _ljuta = 0.007;
       _sol = 0.02;
       _luk = 0.01;
     }
@@ -75,22 +79,23 @@ class _SrednjiScreenState extends State<SrednjiScreen> {
         double.parse(((_sol * _kilograma) * 100).toStringAsFixed(1));
     double _lukrez =
         double.parse(((_luk * _kilograma) * 100).toStringAsFixed(1));
+
+    //Rezultati u kilogramima
+    double _slatkarezkg = double.parse((_slatkarez / 1000).toStringAsFixed(1));
+    double _ljutarezkg = double.parse((_ljutarez / 1000).toStringAsFixed(1));
+    double _solrezkg = double.parse((_solrez / 1000).toStringAsFixed(1));
+    double _lukrezkg = double.parse((_lukrez / 1000).toStringAsFixed(1));
+
     double _slatkapos = double.parse((_slatka * 100).toStringAsFixed(1));
     double _ljutapos = double.parse((_ljuta * 100).toStringAsFixed(1));
     double _solpos = double.parse((_sol * 100).toStringAsFixed(1));
     double _lukpos = double.parse((_luk * 100).toStringAsFixed(1));
-    if (_slatkarez > 999) {
-      _slatkarez = 0;
-    }
-    if (_ljutarez > 999) {
-      _ljutarez = 0;
-    }
-    if (_solrez > 9999) {
-      _solrez = 0;
-    }
-    if (_lukrez > 999) {
-      _lukrez = 0;
-    }
+
+    _slatkabool = _slatkarez > 999 ? true : false;
+    _ljutabool = _ljutarez > 999 ? true : false;
+    _solbool = _solrez > 999 ? true : false;
+    _lukbool = _lukrez > 999 ? true : false;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
 
@@ -295,11 +300,15 @@ class _SrednjiScreenState extends State<SrednjiScreen> {
                     SizedBox(
                       width: scalewidth * 20,
                     ),
-                    Text(
-                      '$_slatkarez g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _slatkabool ? '$_slatkarezkg kg' : '$_slatkarez g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -338,11 +347,15 @@ class _SrednjiScreenState extends State<SrednjiScreen> {
                     SizedBox(
                       width: scalewidth * 30,
                     ),
-                    Text(
-                      '$_ljutarez g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _ljutabool ? '$_ljutarezkg kg' : '$_ljutarez g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -381,11 +394,15 @@ class _SrednjiScreenState extends State<SrednjiScreen> {
                     SizedBox(
                       width: scalewidth * 130,
                     ),
-                    Text(
-                      '$_solrez g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _solbool ? '$_solrezkg kg' : '$_solrez g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -423,11 +440,15 @@ class _SrednjiScreenState extends State<SrednjiScreen> {
                     SizedBox(
                       width: scalewidth * 75,
                     ),
-                    Text(
-                      '$_lukrez g',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: scalewidth * 22,
+                    Flexible(
+                      child: FittedBox(
+                        child: Text(
+                          _lukbool ? '$_lukrezkg kg' : '$_lukrez g',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: scalewidth * 22,
+                          ),
+                        ),
                       ),
                     ),
                   ],
