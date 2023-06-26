@@ -2,6 +2,10 @@
 
 Welcome to smjesApp, a Flutter project for creating Eastern European specialties. The name "smjesApp" is derived from the Croatian word "smjesa" which translates to "mixture" in English. In this application, we focus on creating a mixture of meat and fat with customizable ingredient ratios based on predefined recipes or user preferences.
 
+## DOWNLOAD
+
+[Click here to download](https://github.com/Lovric348/smjesApp/releases/tag/v0.1.0)
+
 ## Guide to using the app
 
 On the homepage, we are greeted with a selection of specialties, as well as a "Drawer" with a brief explanation of the application and instructions for use.
